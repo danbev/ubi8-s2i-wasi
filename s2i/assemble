@@ -1,0 +1,17 @@
+#!/bin/bash
+
+set -e
+
+source /usr/libexec/s2i/env
+
+if [ "$DEV_MODE" == true ] ; then
+	set -x
+fi
+
+echo "---> Installing application source"
+cp -Rfp /tmp/src/. ./
+
+echo "---> Building your WASI application from source"
+
+echo "---> Fix permissions on app-root"
+fix-permissions /opt/app-root
