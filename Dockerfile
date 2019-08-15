@@ -25,9 +25,11 @@ LABEL io.k8s.description="$DESCRIPTION" \
 
 COPY ./s2i/ $STI_SCRIPTS_PATH
 COPY ./contrib/ /opt/app-root
-COPY ./llmv-dist.tar.gz /
+COPY ./llvm-dist.tar.gz /
 
 RUN /opt/app-root/etc/install_node.sh
+
+ENV PATH="/opt/app-root/src/.cargo/bin:${PATH}"
 
 USER 1001
 

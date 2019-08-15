@@ -1,0 +1,6 @@
+Makefile
+versions.mk
+.git
+LICENCE
+*.md
+test
