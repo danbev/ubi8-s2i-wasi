@@ -17,7 +17,7 @@ build: Dockerfile s2i contrib
 	--pull -t $(TARGET) .
 
 .PHONY: test
-test: build
+test:
 	 BUILDER=$(TARGET) WASI_VERSION=$(WASI_VERSION) ./test/run.sh
 
 .PHONY: clean

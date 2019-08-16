@@ -13,5 +13,3 @@ cp -Rfp /tmp/src/. ./
 
 echo "---> Building your WASI application from source"
 
-echo "---> Fix permissions on app-root"
-fix-permissions /opt/app-root
