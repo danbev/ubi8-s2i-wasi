@@ -42,11 +42,6 @@ run_s2i_build() {
   s2i build ${s2i_args} --exclude "(^|/)node_modules(/|$)" ${test_dir}/test-app ${BUILDER} ${APP_IMAGE}
 }
 
-run_s2i_build_incremental() {
-  echo "Running s2i build ${s2i_args} ${test_dir}/test-app ${BUILDER} ${APP_IMAGE} --incremental=true"
-  s2i build ${s2i_args} --exclude "(^|/)node_modules(/|$)" ${test_dir}/test-app ${BUILDER} ${APP_IMAGE} --incremental=true
-}
-
 prepare() {
   if ! image_exists ${BUILDER}; then
     echo "ERROR: The image ${BUILDER} must exist before this script is executed."
@@ -127,6 +122,9 @@ check_result $?
 
 prepare
 run_s2i_build
+check_result $?
+
+run_test_application
 check_result $?
 
 cleanup 

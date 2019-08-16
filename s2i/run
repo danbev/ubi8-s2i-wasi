@@ -7,6 +7,7 @@ source /usr/libexec/s2i/generate-container-user
 run_wasi() {
   echo -e "Using Wasmtime version: $(node --version)"
   echo -e "Running as user $(id)"
+  wasmtime test.wasm
 }
 
 run_wasi
