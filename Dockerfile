@@ -1,4 +1,4 @@
-FROM registry.access.redhat.com/ubi8/s2i-base
+FROM registry.access.redhat.com/ubi8/s2i-core
 
 EXPOSE 8080
 
@@ -25,13 +25,12 @@ LABEL io.k8s.description="$DESCRIPTION" \
 
 COPY ./s2i/ $STI_SCRIPTS_PATH
 COPY ./contrib/ /opt/app-root
-COPY ./llvm-dist.tar.gz /
+COPY ./binaries/wasmtime /usr/bin
 
-RUN /opt/app-root/etc/install_node.sh
-
-ENV PATH="/opt/app-root/src/.cargo/bin:${PATH}"
+#RUN yum remove -y node npm
 
 USER 1001
+
 
 # Set the default CMD to print the usage
 CMD ${STI_SCRIPTS_PATH}/usage

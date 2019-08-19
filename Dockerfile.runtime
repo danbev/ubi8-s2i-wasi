@@ -1,0 +1,9 @@
+# This image is only used to build wasmtime
+FROM registry.access.redhat.com/ubi8/minimal
+
+COPY ./llvm-dist.tar.gz /
+RUN /opt/app-root/etc/install_node.sh
+
+ENV PATH="/opt/app-root/src/.cargo/bin:${PATH}"
+
+USER 1001

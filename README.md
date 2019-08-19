@@ -58,4 +58,6 @@ $ docker build -t ubi8-s2i-wasi .
 
 ```console
 $ docker run -it ubi8-s2i-wasi /bin/bash
+
+$ docker run -ti ${PWD}/binaries:/root/binaries nodeshift/ubi8-s2i-wasi:0.1 /bin/bash
 ```
