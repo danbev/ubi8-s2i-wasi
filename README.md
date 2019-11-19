@@ -37,8 +37,8 @@ packing serverless applications on the same machine - allowing for serverless
 providers to lower costs. Additionally, startup times should be much lower (theoretically on the order of 1-2 ms)
 
 ### Node.js WASI support
-Node.js is currently working on providing WASI support, an implementation
-of the WASI interface so that WASI can be run on Node.js. 
+Node.js is currently working on providing [WASI support](https://github.com/nodejs/node/pull/30258),
+an implementation of the WASI interface so that WASI can be run on Node.js. 
 For example, if Node’s native modules were written in WebAssembly, then users
 wouldn’t need to run node-gyp when they install apps with native modules, and
 developers wouldn’t need to configure and distribute dozens of binaries.
